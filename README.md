@@ -6,3 +6,5 @@ prerequisites:
 * Visual studio 2017 or later
 * Sql server 2014 or later
 * .net framework 
+
+##### In the web.config file give the database name(Intitial catalog) which is not exisiting
