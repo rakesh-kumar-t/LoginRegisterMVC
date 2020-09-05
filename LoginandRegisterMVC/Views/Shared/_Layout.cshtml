@@ -6,14 +6,7 @@
     <title>@ViewBag.Title - Login Demo</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <style>
-
-        .body-content {
-            margin-top: 30px;
-            background-color: rgba(236,239,241,1);
-            border-radius: 10px;
-        }
-    </style>
+    <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -42,10 +35,10 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
+    </div>
+        <footer class="text-center">
             <p>&copy; @DateTime.Now.Year - LoginDemo All Rights Reserved</p>
         </footer>
-    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

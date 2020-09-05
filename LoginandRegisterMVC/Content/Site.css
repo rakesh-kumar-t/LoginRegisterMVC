@@ -1,13 +1,18 @@
-﻿body {
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    max-width:70%;
+    margin-top: 30px;
+    background-color: rgba(236,239,241,1);
+    border-radius: 10px;
 }
+
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 

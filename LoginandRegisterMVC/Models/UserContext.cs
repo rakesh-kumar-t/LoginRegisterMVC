@@ -8,7 +8,7 @@ namespace LoginandRegisterMVC.Models
 {
     public class UserContext:DbContext
     {
-        public UserContext() : base("name=Dbconfig")
+        public UserContext()
         {
 
         }
