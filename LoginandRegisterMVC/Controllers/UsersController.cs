@@ -1,5 +1,7 @@
 ﻿using LoginandRegisterMVC.Models;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -30,8 +32,8 @@ namespace LoginandRegisterMVC.Controllers
                 {
                     if (ModelState.IsValid)
                     {
-                        user.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(user.Password, "sha1"); ;
-                        user.ConfirmPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(user.ConfirmPassword, "sha1");
+                        user.Password = HashPassword(user.Password); ;
+                        user.ConfirmPassword = HashPassword(user.ConfirmPassword);
                         db.Users.Add(user);
                         db.SaveChanges();
                         return RedirectToAction("Index");
@@ -59,9 +61,8 @@ namespace LoginandRegisterMVC.Controllers
         {
             using(UserContext db=new UserContext())
             {
-                user.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(user.Password, "sha1");
+                user.Password = HashPassword(user.Password);
 
-                //FormsAuthentication.HashPasswordForStoringInConfigFile(user.Password,FormsAuthPasswordFormat.SHA1 );
                 var obj = db.Users.Where(u => u.UserId.Equals(user.UserId) && u.Password.Equals(user.Password)).FirstOrDefault();
                 if (obj != null)
                 {
@@ -85,7 +86,18 @@ namespace LoginandRegisterMVC.Controllers
             Session.Clear();
             return RedirectToAction("Login");
         }
-        
-     
+        public string HashPassword(string password)
+        {
+            var pwdarray = Encoding.ASCII.GetBytes(password);
+            var sha1 = new SHA1CryptoServiceProvider();
+            var hash = sha1.ComputeHash(pwdarray);
+            var hashpwd = new StringBuilder(hash.Length);
+            foreach (byte b in hash)
+            {
+                hashpwd.Append(b.ToString());
+            }
+            return hashpwd.ToString();
+        }
+
     }
 }
