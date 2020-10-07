@@ -7,4 +7,4 @@ prerequisites:
 * Sql server 2014 or later
 * .net framework 
 
-##### In the web.config file give the database name(Intitial catalog) which is not exisiting
+##### In the web.config file give the database name(Intitial catalog) which is not exisiting.
