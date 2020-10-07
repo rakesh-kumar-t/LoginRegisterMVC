@@ -94,17 +94,6 @@ namespace LoginandRegisterMVC.Controllers
             return RedirectToAction("Login");
         }
         
-        //public string HashPassword(string password)
-        //{
-        //    var pwdarray = Encoding.ASCII.GetBytes(password);
-        //    var sha1 = new SHA1CryptoServiceProvider();
-        //    var hash = sha1.ComputeHash(pwdarray);
-        //    var hashpwd = new StringBuilder(hash.Length);
-        //    foreach(byte b in hash)
-        //    {
-        //        hashpwd.Append(b.ToString());
-        //    }
-        //    return hashpwd.ToString();
-        //}
+     
     }
 }
