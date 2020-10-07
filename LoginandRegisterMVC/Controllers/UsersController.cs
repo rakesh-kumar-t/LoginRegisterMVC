@@ -15,6 +15,7 @@ namespace LoginandRegisterMVC.Controllers
         [Authorize]
         public ActionResult Index()
         {
+            
             return View(db.Users.ToList());
         }
         public ActionResult Register()
@@ -53,6 +54,17 @@ namespace LoginandRegisterMVC.Controllers
             }
         public ActionResult Login()
         {
+            if (db.Users.Where(u=>u.UserId.Equals("admin@demo.com")).FirstOrDefault()==null)
+            {
+                User user = new User();
+                user.UserId = "admin@demo.com";
+                user.Username = "admin";
+                user.Password = HashPassword("Admin@123");
+                user.ConfirmPassword = HashPassword("Admin@123");
+                user.Role = "Admin";
+                db.Users.Add(user);
+                db.SaveChanges();
+            }
             return View();
         }
         [HttpPost]
@@ -97,6 +109,15 @@ namespace LoginandRegisterMVC.Controllers
                 hashpwd.Append(b.ToString());
             }
             return hashpwd.ToString();
+        }
+        //Dispose the database
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
     }
