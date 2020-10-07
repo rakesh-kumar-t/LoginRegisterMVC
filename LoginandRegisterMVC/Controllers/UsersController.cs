@@ -1,16 +1,8 @@
 ﻿using LoginandRegisterMVC.Models;
-using Microsoft.Ajax.Utilities;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Web;
-using System.Web.Configuration;
-using System.Web.Management;
 using System.Web.Mvc;
 using System.Web.Security;
-using System.Web.Services.Description;
+
 
 namespace LoginandRegisterMVC.Controllers
 {
