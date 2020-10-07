@@ -33,13 +33,4 @@ namespace LoginandRegisterMVC.Models
         [Display(Name ="Role")]
         public string Role { get; set; }
     }
-    public class usertest
-    {
-        [Key]
-        public string UserId { get; set; }
-
-        public string desc { get; set; }
-        [ForeignKey("UserId")]
-        public User users { get; set; }
-    }
 }
